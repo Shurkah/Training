@@ -1,5 +1,3 @@
-# comment
-
 firstline = list(input().split())
 letters, pairs = int(firstline[0]), int(firstline[1])
 
