@@ -11,7 +11,7 @@ def main():
                 for port5 in range(1, 5):
                     route = [port1, port2, port3, port4, port5]
 
-                    if 0 in route and 1 in route and 2 in route and 3 in route and 4 in route:
-                            print(' '.join([portnames[i] for i in route]))
+                    if set(route) == set(range(5)):
+                        print(' '.join([portnames[i] for i in route]))
 
 main()
