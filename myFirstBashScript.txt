@@ -1,0 +1,74 @@
+Your Challenge
+
+    Write a Bash script based on the following requirements:
+        Creates 25 empty (0 KB) files. (Hint: Use the touch command.)
+        The file names should be <yourName><number>, <yourName><number+1>, <yourName><number+2>, and so on.
+        Design the script so that each time you run it, it creates the next batch of 25 files with increasing numbers starting with the last or maximum number that already exists.
+        Do not hard code these numbers. You need to generate them by using automation.
+
+    Test the script. Display a long list of the directory and its contents to validate that the script created the expected files.
+
+---------------------------------------------------
+
+#!/bin/bash
+
+name="ChocolateDonut"
+
+i=1
+while ((i<26)); do
+        touch "${name}${i}"
+        echo "File ${name}${i} created"
+        i=$((i+1))
+done
+ 
+
+
+---------------------------------------------------
+
+[ec2-user@ip-10-0-10-21 ~]$ pwd
+/home/ec2-user
+[ec2-user@ip-10-0-10-21 ~]$ ls
+companyA
+[ec2-user@ip-10-0-10-21 ~]$ nano myscript.sh
+[ec2-user@ip-10-0-10-21 ~]$ chmod +x myscript.sh
+[ec2-user@ip-10-0-10-21 ~]$ ./myscript.sh
+File ChocolateDonut1 created
+File ChocolateDonut2 created
+File ChocolateDonut3 created
+File ChocolateDonut4 created
+File ChocolateDonut5 created
+File ChocolateDonut6 created
+File ChocolateDonut7 created
+File ChocolateDonut8 created
+File ChocolateDonut9 created
+File ChocolateDonut10 created
+File ChocolateDonut11 created
+File ChocolateDonut12 created
+File ChocolateDonut13 created
+File ChocolateDonut14 created
+File ChocolateDonut15 created
+File ChocolateDonut16 created
+File ChocolateDonut17 created
+File ChocolateDonut18 created
+File ChocolateDonut19 created
+File ChocolateDonut20 created
+File ChocolateDonut21 created
+File ChocolateDonut22 created
+File ChocolateDonut23 created
+File ChocolateDonut24 created
+File ChocolateDonut25 created
+[ec2-user@ip-10-0-10-21 ~]$ ls
+ChocolateDonut1   ChocolateDonut15  ChocolateDonut20  ChocolateDonut3  ChocolateDonut9
+ChocolateDonut10  ChocolateDonut16  ChocolateDonut21  ChocolateDonut4  companyA
+ChocolateDonut11  ChocolateDonut17  ChocolateDonut22  ChocolateDonut5  myscript.sh
+ChocolateDonut12  ChocolateDonut18  ChocolateDonut23  ChocolateDonut6
+ChocolateDonut13  ChocolateDonut19  ChocolateDonut24  ChocolateDonut7
+ChocolateDonut14  ChocolateDonut2   ChocolateDonut25  ChocolateDonut8
+[ec2-user@ip-10-0-10-21 ~]$ echo "YAYYY!!!!!111 I AM AMAZINGGGGGG"
+-bash: !111: event not found
+[ec2-user@ip-10-0-10-21 ~]$ echo "a more humble yayy"
+a more humble yayy
+[ec2-user@ip-10-0-10-21 ~]$
+
+
+

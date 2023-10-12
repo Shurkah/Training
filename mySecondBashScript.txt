@@ -1,0 +1,171 @@
+Your Challenge
+
+    Write a Bash script based on the following requirements:
+        Creates 25 empty (0 KB) files. (Hint: Use the touch command.)
+        The file names should be <yourName><number>, <yourName><number+1>, <yourName><number+2>, and so on.
+        Design the script so that each time you run it, it creates the next batch of 25 files with increasing numbers starting with the last or maximum number that already exists.
+        Do not hard code these numbers. You need to generate them by using automation.
+
+    Test the script. Display a long list of the directory and its contents to validate that the script created the expected files.
+
+---------------------------------------------------
+
+#!/bin/bash
+
+name="ChocolateDonut"
+
+maxnum=$(ls | grep -oE "${name}[0-9]+" | awk -F "${name}" '{print $2}' | sort -n | tail -n 1)
+
+
+if [ -n "$maxnum" ]; then
+	echo "Max num: ${maxnum}"
+	i="$maxnum"
+else
+	i=1
+fi
+
+while ((i <= maxnum + 25)); do
+        touch "${name}${i}"
+        echo "File ${name}${i} created"
+        i=$((i+1))
+done
+ 
+
+
+---------------------------------------------------
+
+[ec2-user@ip-10-0-10-21 ~]$ pwd
+/home/ec2-user
+[ec2-user@ip-10-0-10-21 ~]$ ls
+companyA
+[ec2-user@ip-10-0-10-21 ~]$ nano myscript.sh
+[ec2-user@ip-10-0-10-21 ~]$ chmod +x myscript.sh
+[ec2-user@ip-10-0-10-21 ~]$ ./myscript.sh
+File ChocolateDonut1 created
+File ChocolateDonut2 created
+File ChocolateDonut3 created
+File ChocolateDonut4 created
+File ChocolateDonut5 created
+File ChocolateDonut6 created
+File ChocolateDonut7 created
+File ChocolateDonut8 created
+File ChocolateDonut9 created
+File ChocolateDonut10 created
+File ChocolateDonut11 created
+File ChocolateDonut12 created
+File ChocolateDonut13 created
+File ChocolateDonut14 created
+File ChocolateDonut15 created
+File ChocolateDonut16 created
+File ChocolateDonut17 created
+File ChocolateDonut18 created
+File ChocolateDonut19 created
+File ChocolateDonut20 created
+File ChocolateDonut21 created
+File ChocolateDonut22 created
+File ChocolateDonut23 created
+File ChocolateDonut24 created
+File ChocolateDonut25 created
+[ec2-user@ip-10-0-10-21 ~]$ ls
+ChocolateDonut1   ChocolateDonut15  ChocolateDonut20  ChocolateDonut3  ChocolateDonut9
+ChocolateDonut10  ChocolateDonut16  ChocolateDonut21  ChocolateDonut4  companyA
+ChocolateDonut11  ChocolateDonut17  ChocolateDonut22  ChocolateDonut5  myscript.sh
+ChocolateDonut12  ChocolateDonut18  ChocolateDonut23  ChocolateDonut6
+ChocolateDonut13  ChocolateDonut19  ChocolateDonut24  ChocolateDonut7
+ChocolateDonut14  ChocolateDonut2   ChocolateDonut25  ChocolateDonut8
+[ec2-user@ip-10-0-10-21 ~]$ echo "YAYYY!!!!!111 I AM AMAZINGGGGGG"
+-bash: !111: event not found
+[ec2-user@ip-10-0-10-21 ~]$ echo "a more humble yayy"
+a more humble yayy
+[ec2-user@ip-10-0-10-21 ~]$ ^C
+[ec2-user@ip-10-0-10-21 ~]$ nano myscript.sh
+[ec2-user@ip-10-0-10-21 ~]$ ls
+ChocolateDonut1   ChocolateDonut15  ChocolateDonut20  ChocolateDonut3  ChocolateDonut9
+ChocolateDonut10  ChocolateDonut16  ChocolateDonut21  ChocolateDonut4  companyA
+ChocolateDonut11  ChocolateDonut17  ChocolateDonut22  ChocolateDonut5  myscript_2.sh
+ChocolateDonut12  ChocolateDonut18  ChocolateDonut23  ChocolateDonut6  myscript.sh
+ChocolateDonut13  ChocolateDonut19  ChocolateDonut24  ChocolateDonut7
+ChocolateDonut14  ChocolateDonut2   ChocolateDonut25  ChocolateDonut8
+[ec2-user@ip-10-0-10-21 ~]$ ./myscript_2.sh
+-bash: ./myscript_2.sh: Permission denied
+[ec2-user@ip-10-0-10-21 ~]$ chmod +x myscript
+myscript_2.sh  myscript.sh
+[ec2-user@ip-10-0-10-21 ~]$ chmod +x myscript_2.sh
+[ec2-user@ip-10-0-10-21 ~]$ ./myscript_2.sh
+Max num: 25
+File ChocolateDonut25 created
+File ChocolateDonut26 created
+File ChocolateDonut27 created
+File ChocolateDonut28 created
+File ChocolateDonut29 created
+File ChocolateDonut30 created
+File ChocolateDonut31 created
+File ChocolateDonut32 created
+File ChocolateDonut33 created
+File ChocolateDonut34 created
+File ChocolateDonut35 created
+File ChocolateDonut36 created
+File ChocolateDonut37 created
+File ChocolateDonut38 created
+File ChocolateDonut39 created
+File ChocolateDonut40 created
+File ChocolateDonut41 created
+File ChocolateDonut42 created
+File ChocolateDonut43 created
+File ChocolateDonut44 created
+File ChocolateDonut45 created
+File ChocolateDonut46 created
+File ChocolateDonut47 created
+File ChocolateDonut48 created
+File ChocolateDonut49 created
+File ChocolateDonut50 created
+[ec2-user@ip-10-0-10-21 ~]$ ./myscript_2.sh
+Max num: 50
+File ChocolateDonut50 created
+File ChocolateDonut51 created
+File ChocolateDonut52 created
+File ChocolateDonut53 created
+File ChocolateDonut54 created
+File ChocolateDonut55 created
+File ChocolateDonut56 created
+File ChocolateDonut57 created
+File ChocolateDonut58 created
+File ChocolateDonut59 created
+File ChocolateDonut60 created
+File ChocolateDonut61 created
+File ChocolateDonut62 created
+File ChocolateDonut63 created
+File ChocolateDonut64 created
+File ChocolateDonut65 created
+File ChocolateDonut66 created
+File ChocolateDonut67 created
+File ChocolateDonut68 created
+File ChocolateDonut69 created
+File ChocolateDonut70 created
+File ChocolateDonut71 created
+File ChocolateDonut72 created
+File ChocolateDonut73 created
+File ChocolateDonut74 created
+File ChocolateDonut75 created
+[ec2-user@ip-10-0-10-21 ~]$ ls
+ChocolateDonut1   ChocolateDonut24  ChocolateDonut39  ChocolateDonut53  ChocolateDonut68
+ChocolateDonut10  ChocolateDonut25  ChocolateDonut4   ChocolateDonut54  ChocolateDonut69
+ChocolateDonut11  ChocolateDonut26  ChocolateDonut40  ChocolateDonut55  ChocolateDonut7
+ChocolateDonut12  ChocolateDonut27  ChocolateDonut41  ChocolateDonut56  ChocolateDonut70
+ChocolateDonut13  ChocolateDonut28  ChocolateDonut42  ChocolateDonut57  ChocolateDonut71
+ChocolateDonut14  ChocolateDonut29  ChocolateDonut43  ChocolateDonut58  ChocolateDonut72
+ChocolateDonut15  ChocolateDonut3   ChocolateDonut44  ChocolateDonut59  ChocolateDonut73
+ChocolateDonut16  ChocolateDonut30  ChocolateDonut45  ChocolateDonut6   ChocolateDonut74
+ChocolateDonut17  ChocolateDonut31  ChocolateDonut46  ChocolateDonut60  ChocolateDonut75
+ChocolateDonut18  ChocolateDonut32  ChocolateDonut47  ChocolateDonut61  ChocolateDonut8
+ChocolateDonut19  ChocolateDonut33  ChocolateDonut48  ChocolateDonut62  ChocolateDonut9
+ChocolateDonut2   ChocolateDonut34  ChocolateDonut49  ChocolateDonut63  companyA
+ChocolateDonut20  ChocolateDonut35  ChocolateDonut5   ChocolateDonut64  myscript_2.sh
+ChocolateDonut21  ChocolateDonut36  ChocolateDonut50  ChocolateDonut65  myscript.sh
+ChocolateDonut22  ChocolateDonut37  ChocolateDonut51  ChocolateDonut66
+ChocolateDonut23  ChocolateDonut38  ChocolateDonut52  ChocolateDonut67
+[ec2-user@ip-10-0-10-21 ~]$
+
+
+
+
