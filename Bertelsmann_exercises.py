@@ -1,9 +1,14 @@
-book_title =  ['great', 'expectations','the', 'adventures', 'of', 'sherlock','holmes','the',
-               'great','gasby','hamlet','adventures','of','huckleberry','fin']
+# You would like to count the number of fruits in your basket. 
+# In order to do this, you have the following dictionary and list of
+# fruits.  Use the dictionary and list to count the total number
+# of fruits, but you do not want to count the other items in your basket.
 
-word_counter = {}
+result = 0
+basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
+fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
 
-for word in book_title:
-    word_counter[word] = word_counter.get(word, 0) + 1
+for fruit in fruits:
+    if fruit in basket_items:
+        result += basket_items[fruit]
 
-print(word_counter)
+print(result)
