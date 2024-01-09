@@ -1,27 +1,9 @@
-'''
-Create an HTML List
+book_title =  ['great', 'expectations','the', 'adventures', 'of', 'sherlock','holmes','the',
+               'great','gasby','hamlet','adventures','of','huckleberry','fin']
 
-Write some code, including a for loop, that iterates over a list of strings and creates a single string,
-html_str, which is an HTML list.
-For example, if the list is items = ['first string', 'second string'], printing html_str should output:
+word_counter = {}
 
-<ul>
-<li>first string</li>
-<li>second string</li>
-</ul>
+for word in book_title:
+    word_counter[word] = word_counter.get(word, 0) + 1
 
-That is, the string's first line should be the opening tag <ul>.
-Following that is one line per element in the source list, surrounded by <li> and </li> tags.
-The final line of the string should be the closing tag </ul>.
-
-'''
-
-items = ['first string', 'second string']
-html_str = "<ul>\n"
-
-for item in items:
-    html_str += '<li>' + item + '</li>\n'
-
-html_str += "</ul>\n"
-
-print(html_str)
+print(word_counter)
