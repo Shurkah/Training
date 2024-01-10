@@ -13,4 +13,3 @@ else:
         break_num += count_by
         result = break_num
 
-
