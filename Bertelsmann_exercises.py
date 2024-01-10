@@ -1,16 +1,23 @@
-# You would like to count the number of fruits in your basket.
-# In order to do this, you have the following dictionary and list of
-# fruits.  Use the dictionary and list to count the total number
-# of fruits and not_fruits.
+# number to find the factorial of
+number = 6
+# start with our product equal to one
+product = 1
+# track the current number being multiplied
+current = 1
 
-fruit_count, not_fruit_count = 0, 0
-basket_items = {'apples': 4, 'oranges': 19, 'kites': 3, 'sandwiches': 8}
-fruits = ['apples', 'oranges', 'pears', 'peaches', 'grapes', 'bananas']
+while current <= number:
+    product *= current
+    current += 1
 
-for key, value in basket_items.items():
-    if key in fruits:
-        fruit_count += value
-    else:
-        not_fruit_count += value
+print(product)
 
-print(fruit_count, not_fruit_count)
+
+# number to find the factorial of
+number = 6
+# start with our product equal to one
+product = 1
+
+for i in range(1, number + 1):
+    product *= i
+
+print(product)
