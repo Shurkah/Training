@@ -1,18 +1,18 @@
-headlines = ["Local Bear Eaten by Man",
-             "Legislature Announces New Laws",
-             "Peasant Discovers Violence Inherent in System",
-             "Cat Rescues Fireman Stuck in Tree",
-             "Brave Knight Runs Away",
-             "Papperbok Review: Totally Triffic"]
+# Write code to check if the numbers provided in the list check_prime are prime numbers.
+# For each number, if the number is prime, the code should print that the number is a prime number.
+# If the number is NOT a prime number, it should print that the number is not a prime number,
+# and also print a factor of that number besides 1 and the number itself.
 
-news_ticker = ""
+check_prime = [26, 39, 51, 53, 57, 79, 85]
 
-for headline in headlines:
-    news_ticker += headline + ' '
-    if len(news_ticker) >= 140:
-        break
+for num in check_prime:
+    if num == 2:
+        print('{} IS a prime number'.format(num))
+        continue
+    for i in range(2, num):
+        if num % i == 0:
+            print("{} is NOT a prime number, because {} is a factor of {}".format(num, num, i))
+            break
+        if i == num - 1:
+            print('{} IS a prime number'.format(num))
 
-news_ticker = news_ticker[:140]
-
-print(news_ticker)
-print(len(news_ticker))
