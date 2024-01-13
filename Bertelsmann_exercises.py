@@ -1,5 +1,7 @@
-cast = (("Barney", 72), ("Robin", 68), ("Ted", 72), ("Lily", 66), ("Marshall", 76))
+cast = ["Barney Stinson", "Robin Scherbatsky", "Ted Mosby", "Lily Aldrin", "Marshall Eriksen"]
+heights = [72, 68, 72, 66, 76]
+# write your for loop here
 
-
-names, heights = zip(*cast)
-print(names, heights)
+for i, actor in enumerate(cast):
+    cast[i] = actor + ' ' + str(heights[i])
+print(cast)
