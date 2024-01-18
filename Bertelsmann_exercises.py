@@ -16,9 +16,7 @@ with open(word_file,'r') as words:
             word_list.append(word)
 
 def generate_password():
-    keys = random.choices(word_list, k=3)
-    password = str(keys[0] + keys[1] + keys[2])
-    return password
+    return ''.join(random.choices(word_list, k=3))
 # It should return a string consisting of three random words 
 # concatenated together without spaces
 
