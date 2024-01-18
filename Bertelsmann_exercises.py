@@ -22,3 +22,4 @@ def generate_password():
 
 # Now we test the function
 password = generate_password()
+
